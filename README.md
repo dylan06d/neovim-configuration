@@ -10,7 +10,11 @@ sudo dnf install neovim git gcc make tree-sitter-cli ripgrep fd-find
 debian:
 ```bash
 sudo apt update
-sudo apt install git gcc make tree-sitter-cli ripgrep fd-find
+sudo apt install git gcc make ripgrep fd-find
+curl -fLO "https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz"
+gunzip -f tree-sitter-linux-x64.gz
+chmod +x tree-sitter-linux-x64
+sudo mv tree-sitter-linux-x64 /usr/local/bin/tree-sitter
 ```
 `tree-sitter-cli` 与 `gcc` 用于编译 Treesitter 解析器（nvim-treesitter `main` 分支必需）。
 
