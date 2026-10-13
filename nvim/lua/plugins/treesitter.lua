@@ -1,50 +1,28 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    branch = "main",
-    lazy = false,
-    build = ":TSUpdate",
+  "nvim-treesitter/nvim-treesitter",
+  branch = "main",
+  lazy = false,
+  build = ":TSUpdate",
+  config = function()
+    -- 异步安装解析器，已安装的会自动跳过（需要 tree-sitter-cli 和 C 编译器）
+    require("nvim-treesitter").install({
+      "bash", "c", "cpp", "rust", "cmake", "make", "toml",
+      "diff", "html", "javascript", "json", "yaml",
+      "lua", "luadoc", "vim", "vimdoc", "query",
+      "markdown", "markdown_inline",
+    })
 
-    config = function()
-      -- 使用默认设置；可以省略 setup()，这里显式指定安装目录
-      require("nvim-treesitter").setup({
-        install_dir = vim.fn.stdpath("data") .. "/site",
-      })
-
-      -- 安装需要的语法解析器
-      require("nvim-treesitter").install({
-        "bash",
-        "c",
-		"cpp",
-        "diff",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "luadoc",
-        "markdown",
-        "markdown_inline",
-        "query",
-        "vim",
-        "vimdoc",
-        "yaml",
-      })
-
-      -- 开启 Neovim 内置的 Treesitter 语法高亮
-      vim.api.nvim_create_autocmd("FileType", {
-        callback = function(args)
-          local filetype = args.match
-
-          -- 已安装对应解析器时才启动 Treesitter
-          local lang = vim.treesitter.language.get_lang(filetype)
-          if lang and pcall(vim.treesitter.start, args.buf, lang) then
-            -- 可选：让缩进也使用 Treesitter
-            -- vim.bo[args.buf].indentexpr =
-            --   "v:lua.require'nvim-treesitter'.indentexpr()"
-          end
-        end,
-      })
-    end,
-  },
+    -- 有对应解析器时启用 Treesitter 高亮
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("user_treesitter", { clear = true }),
+      callback = function(args)
+        local lang = vim.treesitter.language.get_lang(args.match)
+        if lang then
+          pcall(vim.treesitter.start, args.buf, lang)
+          -- 可选：Treesitter 缩进（实验性）
+          -- vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
+    })
+  end,
 }
-

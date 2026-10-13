@@ -1,0 +1,69 @@
+# Neovim 配置
+
+需要 **Neovim 0.11+**（`nvim --version` 检查）。
+
+## 依赖
+```bash
+sudo dnf install neovim git gcc make tree-sitter-cli ripgrep fd-find
+```
+`tree-sitter-cli` 与 `gcc` 用于编译 Treesitter 解析器（nvim-treesitter `main` 分支必需）。
+
+## 安装
+```bash
+git clone <本仓库> ~/.config/nvim
+nvim   # 首次启动会自动安装插件
+```
+
+## 结构
+```
+init.lua                  入口（先设置 leader）
+lua/config/options.lua    编辑器选项
+lua/config/keybinds.lua   快捷键
+lua/config/autocmds.lua   自动命令
+lua/config/lazy.lua       lazy.nvim 引导
+lua/plugins/theme.lua     主题：github-nvim-theme（github_dark_high_contrast，透明背景）
+lua/plugins/treesitter.lua  Treesitter；新增语言请修改 install 列表
+lua/plugins/lsp.lua       LSP：mason + 原生补全；新增服务器请改 ensure_installed
+lua/plugins/telescope.lua 搜索插件
+lua/plugins/toggleteerm.lua 终端工具
+lua/plugins/whichkey.lua   查看快捷键
+lua/plugins/neotree.lua    文件树
+lua/plugins/autopairs.lua  自动补全成对的符号
+```
+
+## 快捷键
+| 按键 | 功能 |
+|---|---|
+| `C-x C-f` | 打开neo文件浏览器 |
+| `C-x C-s` | 保存 |
+| `C-x C-c` | 保存全部并退出 |
+| `C-x 2` | 水平分屏 |
+| `C-x 3` | 垂直分屏 |
+| `C-x 4` | 新标签页 |
+| `C-x c` | 关闭当前窗口 |
+| `C-x t` | 打开终端 |
+| `C-c C-c` | 终端回到普通模式 |
+| `C-c 方向` | 切换光标到对应方向的窗口 |
+| `C-c w 方向` | 交换对应方向的窗口 |
+| `C-z` | 撤销 |
+| `C-a` / `C-e` | 行首 / 行尾 |
+| `gd` | 下一个标签页 |
+| `gD` | 上一个标签页 |
+| `M-.` | 跳转到标签页（LSP） |
+| `M-,` | 返回跳转前的位置（LSP） |
+| `<leafer>fe` | 打开neovim自带的文件浏览器 |
+| `<leader>cf` | 格式化（LSP） |
+| `<leader>e` | 显示诊断 |
+| `<leader>ff` | 查找文件 |
+| `<leader>fg` | 全局搜索文本 |
+| `<leader>fw` | 搜索光标处单词 |
+| `<leader>fb` | 缓冲区列表 |
+| `<leader>fr` | 最近文件 |
+| `<leader>fh` | 帮助文档 |
+| `<leader>fk` | 快捷键列表 |
+| `<leader>fd` | 诊断列表 |
+| `<leader>f/` | 当前文件内搜索 |
+| `<leader>f.` | 恢复上次搜索 |
+| `<leader>gs` | 浮动窗口显示git status |
+
+补全菜单：`C-n`/`C-p` 选择，`C-y` 确认。
