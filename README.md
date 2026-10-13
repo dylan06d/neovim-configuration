@@ -39,7 +39,7 @@ lua/plugins/toggleteerm.lua 终端工具
 lua/plugins/whichkey.lua   查看快捷键
 lua/plugins/neotree.lua    文件树
 lua/plugins/autopairs.lua  自动补全成对的符号
-lua/plugins/gitsigns.lua  自动补全成对的符号
+lua/plugins/gitsigns.lua  把git状态直接集成到编辑器缓冲区
 ```
 
 ## 快捷键
