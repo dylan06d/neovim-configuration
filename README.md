@@ -61,6 +61,8 @@ lua/plugins/autopairs.lua  自动补全成对的符号
 | `gD` | 上一个标签页 |
 | `M-.` | 跳转到标签页（LSP） |
 | `M-,` | 返回跳转前的位置（LSP） |
+| `]h` | 下一个改动块 |
+| `[h` | 上一个改动块 |
 | `<leafer>fe` | 打开neovim自带的文件浏览器 |
 | `<leader>cf` | 格式化（LSP） |
 | `<leader>e` | 显示诊断 |
@@ -75,5 +77,11 @@ lua/plugins/autopairs.lua  自动补全成对的符号
 | `<leader>f/` | 当前文件内搜索 |
 | `<leader>f.` | 恢复上次搜索 |
 | `<leader>gs` | 浮动窗口显示git status |
+| `<leader>hs` | 暂存/取消暂存改动块（可视模式下作用于选中的行） |
+| `<leader>hr` | 还原改动块（可视模式作用于选中行） |
+| `<leader>hp` | 预览改动块 |
+| `<leader>hb` | 显示当前行完整的blame |
+| `<leader>hB` | 开关行尾blame提示 |
+| `<leader>hd` | 与索引对比（diff） |
 
 补全菜单：`C-n`/`C-p` 选择，`C-y` 确认。
