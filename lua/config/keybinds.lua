@@ -99,5 +99,3 @@ vim.keymap.set("n", "<C-w>", function()
   vim.keymap.set("n", "<Up>", function() do_swap("k") end, { buffer = true })
   vim.keymap.set("n", "<Right>", function() do_swap("l") end, { buffer = true })
 end, { desc = "窗口交换模式（接方向键）" })
-
-vim.keymap.set("i", "<C-g>", "<Esc>", { desc = "退出插入模式" })

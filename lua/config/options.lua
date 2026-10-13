@@ -31,7 +31,7 @@ opt.backup = false
 opt.writebackup = false
 opt.undofile = true
 opt.updatetime = 300         -- 默认 4000ms，缩短后诊断/CursorHold 更及时
-opt.timeoutlen = 500         -- 组合键等待时间
+opt.timeoutlen = 1000         -- 组合键等待时间
 
 -- 补全：配合 vim.lsp.completion（见 plugins/lsp.lua）
 opt.autocomplete = false

@@ -41,6 +41,7 @@ lua/plugins/neotree.lua    文件树
 lua/plugins/autopairs.lua  自动补全成对的符号
 lua/plugins/gitsigns.lua   把git状态直接集成到编辑器缓冲区
 lua/plugins/rendermd.lua    Neovim 中 Markdown 的显示效果
+lua/plugins/betterescape.lua    设置按键映射
 ```
 
 ## 快捷键
@@ -61,6 +62,7 @@ lua/plugins/rendermd.lua    Neovim 中 Markdown 的显示效果
 | `C-a` / `C-e` | 行首 / 行尾 |
 | `gd` | 下一个标签页 |
 | `gD` | 上一个标签页 |
+| `jk` | 退出插入模式 |
 | `M-.` | 跳转到标签页（LSP） |
 | `M-,` | 返回跳转前的位置（LSP） |
 | `]h` | 下一个改动块 |
