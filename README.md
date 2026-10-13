@@ -3,8 +3,14 @@
 需要 **Neovim 0.11+**（`nvim --version` 检查）。
 
 ## 依赖
+fedora:
 ```bash
 sudo dnf install neovim git gcc make tree-sitter-cli ripgrep fd-find
+```
+debian:
+```bash
+sudo apt update
+sudo apt install git gcc make tree-sitter-cli ripgrep fd-find
 ```
 `tree-sitter-cli` 与 `gcc` 用于编译 Treesitter 解析器（nvim-treesitter `main` 分支必需）。
 
