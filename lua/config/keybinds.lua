@@ -28,18 +28,18 @@ map({ "n", "i" }, "<M-,>", function()
 end, { desc = "返回跳转前的位置" })
 
 -- 终端
-map("t", "<C-c><C-c>", [[<C-\><C-n>]], { desc = "终端模式回到普通模式" })
+map("t", "<C-k>", [[<C-\><C-n>]], { desc = "终端模式回到普通模式" })
 
 -- C-c + 方向键切换窗口
-map({ "n", "i" }, "<C-c><Left>", "<Cmd>wincmd h<CR>", { desc = "切换到左边窗口" })
-map({ "n", "i" }, "<C-c><Down>", "<Cmd>wincmd j<CR>", { desc = "切换到下边窗口" })
-map({ "n", "i" }, "<C-c><Up>", "<Cmd>wincmd k<CR>", { desc = "切换到上边窗口" })
-map({ "n", "i" }, "<C-c><Right>", "<Cmd>wincmd l<CR>", { desc = "切换到右边窗口" })
+map({ "n", "i" }, "<C-Left>", "<Cmd>wincmd h<CR>", { desc = "切换到左边窗口" })
+map({ "n", "i" }, "<C-Down>", "<Cmd>wincmd j<CR>", { desc = "切换到下边窗口" })
+map({ "n", "i" }, "<C-Up>", "<Cmd>wincmd k<CR>", { desc = "切换到上边窗口" })
+map({ "n", "i" }, "<C-Right>", "<Cmd>wincmd l<CR>", { desc = "切换到右边窗口" })
 
 -- 文件浏览器 / 保存 / 保存并退出
 map("n",  "<leader>fe", leave_then("Ex"), { desc = "打开文件浏览器" })
 map({ "n", "i" }, "<C-x><C-s>", leave_then("w"), { desc = "保存文件" })
-map({ "n", "i" }, "<C-x><C-c>", leave_then("xa"), { desc = "保存全部并退出" })
+map({ "n", "i" }, "<C-x><C-k>", leave_then("xa"), { desc = "保存全部并退出" })
 
 -- 撤销（插入模式下使用 <C-o> 不会退出插入模式）
 map("n", "<C-z>", "u", { desc = "撤销" })
@@ -54,7 +54,7 @@ map("i", "<C-e>", "<C-o>$", { desc = "跳到行尾" })
 -- 清除搜索高亮
 map("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "清除搜索高亮" })
 
--- 窗口交换模式：按 <C-c>w 后接方向键交换窗口
+-- 窗口交换模式：按 <C-w> 后接方向键交换窗口
 local swap_mode = false
 
 -- 交换当前窗口与指定方向的窗口
@@ -81,7 +81,7 @@ local function swap_window(direction)
 end
 
 -- 进入交换模式，只监听方向键
-vim.keymap.set("n", "<C-c>w", function()
+vim.keymap.set("n", "<C-w>", function()
   swap_mode = true
 
   local function do_swap(direction)
@@ -99,3 +99,5 @@ vim.keymap.set("n", "<C-c>w", function()
   vim.keymap.set("n", "<Up>", function() do_swap("k") end, { buffer = true })
   vim.keymap.set("n", "<Right>", function() do_swap("l") end, { buffer = true })
 end, { desc = "窗口交换模式（接方向键）" })
+
+vim.keymap.set("i", "<C-j>", "<Esc>", { desc = "退出插入模式" })

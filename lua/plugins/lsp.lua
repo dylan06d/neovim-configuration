@@ -13,13 +13,25 @@ return {
         severity_sort = true,
         virtual_text = { spacing = 2, prefix = "●" },
         float = { border = "rounded", wrap = true, source = true },
-        update_in_insert = false,
-        virtual_text = false,
-        underline = false,
-      })
+    })
 
-      -- 单个服务器的自定义设置
-      vim.lsp.config("clangd", {
+    -- 插入模式下隐藏诊断，退出插入模式后恢复显示
+    local diag_group = vim.api.nvim_create_augroup("user_diagnostic_insert", { clear = true })
+    vim.api.nvim_create_autocmd("InsertEnter", {
+        group = diag_group,
+        callback = function(ev)
+            vim.diagnostic.enable(false, { bufnr = ev.buf })
+        end,
+    })
+    vim.api.nvim_create_autocmd("InsertLeave", {
+        group = diag_group,
+        callback = function(ev)
+            vim.diagnostic.enable(true, { bufnr = ev.buf })
+        end,
+    })
+
+    -- 单个服务器的自定义设置
+    vim.lsp.config("clangd", {
         cmd = { "clangd", "--background-index", "--clang-tidy" },
       })
 
