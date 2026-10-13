@@ -12,7 +12,10 @@ return {
       vim.diagnostic.config({
         severity_sort = true,
         virtual_text = { spacing = 2, prefix = "●" },
-        float = { border = "rounded" },
+        float = { border = "rounded", wrap = true, source = true },
+        update_in_insert = false,
+        virtual_text = false,
+        underline = false,
       })
 
       -- 单个服务器的自定义设置
