@@ -13,6 +13,7 @@ return {
         severity_sort = true,
         virtual_text = { spacing = 2, prefix = "●" },
         float = { border = "rounded", wrap = true, source = true },
+        underline = false,
     })
 
     -- 插入模式下隐藏诊断，退出插入模式后恢复显示
