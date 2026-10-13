@@ -59,3 +59,4 @@ opt.path:append("**")        -- :find 可搜索子目录
 vim.schedule(function()
   opt.clipboard:append("unnamedplus")
 end)
+
