@@ -39,6 +39,7 @@ return {
         ensure_installed = {
           "clangd",        -- C / C++
           "rust_analyzer", -- Rust
+          "marksman",      -- Markdown
         },
         automatic_enable = true,
       })
