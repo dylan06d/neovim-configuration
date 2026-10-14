@@ -42,6 +42,7 @@ lua/plugins/autopairs.lua  自动补全成对的符号
 lua/plugins/gitsigns.lua   把git状态直接集成到编辑器缓冲区
 lua/plugins/rendermd.lua    Neovim 中 Markdown 的显示效果
 lua/plugins/betterescape.lua    设置按键映射
+lua/plugins/multicursor.lua    多光标
 ```
 
 ## 快捷键
@@ -89,4 +90,19 @@ lua/plugins/betterescape.lua    设置按键映射
 | `<leader>hB` | 开关行尾blame提示 |
 | `<leader>hd` | 与索引对比（diff） |
 
+|multicursor | 多光标快捷键 |
+|---|---|
+| `↑` | 向上添加光标（普通、可视模式） |
+| '↓' | 向下添加光标 （普通、可视模式） |
+| `<leader>↑ / <leader>↓` | 向上 / 向下跳过一行 |
+| `<leader>n / <leader>N` |	为下一个 / 上一个匹配添加光标 |
+| `<leader>s / <leader>S` |	跳过下一个 / 上一个匹配 |
+| `<leader>A` |	为文件中所有匹配添加光标 |
+| `ga + 范围` |	按范围添加光标（如 gaip） |
+| `I / A（可视模式）` |	每行行首插入 / 行尾追加 |
+| `Ctrl + 鼠标左键` | 添加 / 移除光标 |
+| `C-q` | 暂停 / 恢复多光标 |
+| `← / →（多光标时）` |	切换主光标 |
+| `<leader>x（多光标时）` |	删除主光标 |
+| `Esc（多光标时）` | 恢复暂停的光标，再按一次清除所有光标 |
 补全菜单：`C-n`/`C-p` 选择，`C-y` 确认。
