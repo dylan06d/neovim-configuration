@@ -5,6 +5,7 @@ local opt = vim.opt
 
 -- 界面
 opt.number = true            -- 显示行号
+opt.relativenumber = true    -- 显示相对行号
 opt.cursorline = true        -- 高亮当前行
 opt.scrolloff = 10           -- 光标上下各保留10行
 opt.signcolumn = "yes"       -- 始终显示符号列，避免界面抖动
