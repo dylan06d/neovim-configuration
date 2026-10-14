@@ -11,8 +11,8 @@ return {
     end
 
     -- 在主光标上方/下方添加或跳过光标
-    set({ "n", "x" }, "<C-up>", function() mc.lineAddCursor(-1) end, "向上添加光标")
-    set({ "n", "x" }, "<C-down>", function() mc.lineAddCursor(1) end, "向下添加光标")
+    set({ "n", "x" }, "<C-k>", function() mc.lineAddCursor(-1) end, "向上添加光标")
+    set({ "n", "x" }, "<C-j>", function() mc.lineAddCursor(1) end, "向下添加光标")
     set({ "n", "x" }, "<leader><up>", function() mc.lineSkipCursor(-1) end, "向上跳过一行")
     set({ "n", "x" }, "<leader><down>", function() mc.lineSkipCursor(1) end, "向下跳过一行")
 

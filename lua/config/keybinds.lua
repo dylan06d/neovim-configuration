@@ -30,7 +30,7 @@ end, { desc = "返回跳转前的位置" })
 -- 终端
 map("t", "<C-k>", [[<C-\><C-n>]], { desc = "终端模式回到普通模式" })
 
--- C-c + 方向键切换窗口
+-- C + 方向键切换窗口
 map({ "n", "i" }, "<C-Left>", "<Cmd>wincmd h<CR>", { desc = "切换到左边窗口" })
 map({ "n", "i" }, "<C-Down>", "<Cmd>wincmd j<CR>", { desc = "切换到下边窗口" })
 map({ "n", "i" }, "<C-Up>", "<Cmd>wincmd k<CR>", { desc = "切换到上边窗口" })
