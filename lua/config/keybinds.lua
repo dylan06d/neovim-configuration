@@ -99,3 +99,9 @@ vim.keymap.set("n", "<C-w>", function()
   vim.keymap.set("n", "<Up>", function() do_swap("k") end, { buffer = true })
   vim.keymap.set("n", "<Right>", function() do_swap("l") end, { buffer = true })
 end, { desc = "窗口交换模式（接方向键）" })
+
+-- 设置改变窗口大小快捷键
+vim.keymap.set('n', '<C-S-Up>', ':resize +2<CR>', { desc = '增加窗口高度' })
+vim.keymap.set('n', '<C-S-Down>', ':resize -2<CR>', { desc = '减少窗口高度' })
+vim.keymap.set('n', '<C-S-Left>', ':vertical resize -2<CR>', { desc = '减少窗口宽度' })
+vim.keymap.set('n', '<C-S-Right>', ':vertical resize +2<CR>', { desc = '增加窗口宽度' })
