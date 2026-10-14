@@ -6,8 +6,8 @@ return {
             default_mappings = false,
             mappings =  {
                 i = {
-                    c = {
-                        c = "<Esc>",
+                    f = {
+                        f = "<Esc>",
                     },
                     s = {
                         s = function()
