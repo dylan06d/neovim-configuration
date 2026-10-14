@@ -16,9 +16,9 @@ opt.pumblend = 10            -- 补全菜单透明度
 opt.fillchars = { eob = " " } -- 隐藏空行前的 "~"
 
 -- 缩进
-opt.tabstop = 4              -- Tab 显示为 4 个空格
-opt.shiftwidth = 4           -- 自动缩进宽度
-opt.softtabstop = 4          -- 插入/删除 Tab 时按 4 个空格处理
+opt.tabstop =  3             -- Tab 显示为 4 个空格
+opt.shiftwidth = 3           -- 自动缩进宽度
+opt.softtabstop = 3          -- 插入/删除 Tab 时按 4 个空格处理
 opt.expandtab = true         -- 用空格代替 Tab（Makefile 等会被 ftplugin 自动覆盖）
 
 -- 搜索
