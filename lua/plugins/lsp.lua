@@ -41,6 +41,7 @@ return {
           "clangd",        -- C / C++
           "rust_analyzer", -- Rust
           "marksman",      -- Markdown
+          "lua_ls",
         },
         automatic_enable = true,
       })
